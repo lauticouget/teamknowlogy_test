@@ -12,5 +12,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lautaro Couget",
-  "license": "ISC"
+  "license": "ISC",
+  "start": "node app.js"
 }
