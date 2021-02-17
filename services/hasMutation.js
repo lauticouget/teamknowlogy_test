@@ -1,6 +1,4 @@
-module.exports = function hasMutation(array) {
-    // Validación bases nitrogenadas VALIDAS!
-    // SOLO VALORES  [A, T, C, G];
+module.exports = function (array) {
 
     let mutationRegx = /([a-zA-Z])\1\1\1/i
     let hasMutations = false;
@@ -64,9 +62,9 @@ module.exports = function hasMutation(array) {
         }
     }
 
-    console.log(`hasMutation: ${hasMutations}`, mutations);
-    
     hasMutations = mutations.length > 2 ? false : true;
     
+    console.log(`hasMutation: ${hasMutations}`, mutations);
+
     return hasMutations;
 }
