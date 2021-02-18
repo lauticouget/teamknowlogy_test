@@ -9,11 +9,11 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "Lautaro Couget",
   "license": "ISC",
-  "start": "node app.js",
   "engines": {
     "node": "12.x"
   }
