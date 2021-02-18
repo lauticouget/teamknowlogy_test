@@ -62,7 +62,7 @@ module.exports = function (array) {
         }
     }
 
-    hasMutations = mutations.length > 2 ? false : true;
+    hasMutations = mutations.length >= 2 ? true : false;
     
     console.log(`hasMutation: ${hasMutations}`, mutations);
 
