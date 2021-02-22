@@ -26,7 +26,6 @@ module.exports = function (array) {
             else verticals.push(nitrogenBase);
 
             // Create descending diagonal Secuences
-            // diagonalIndex = parseInt("" + i - j);
             diagonalIndex = i - j;
             if (descDiagonals[diagonalIndex]) descDiagonals[diagonalIndex] = descDiagonals[diagonalIndex].concat(nitrogenBase);
             else descDiagonals[diagonalIndex] = nitrogenBase;
@@ -62,9 +61,7 @@ module.exports = function (array) {
         }
     }
 
-    hasMutations = mutations.length >= 2 ? true : false;
-    
-    console.log(`hasMutation: ${hasMutations}`, mutations);
+    hasMutations = mutations.length >= 2 ? 1 : 0;
 
     return hasMutations;
 }
