@@ -10,7 +10,6 @@ module.exports = function (array) {
     for (let i = 0; i < array.length; i++) {
         const horizontal = array[i];
         if (mutationRegx.test(horizontal)) {
-            console.log("horizontal mutation: " + horizontal);
             hasMutations = false;
             mutations.push(horizontal)
             if (mutations.length <= 2) break;
@@ -42,7 +41,6 @@ module.exports = function (array) {
     if (mutations.length <= 2) {
         for (const vertical of verticals) {
             if (mutationRegx.test(vertical)) {
-                console.log("vertical mutation: " + vertical);
                 hasMutations = false;
                 mutations.push(vertical)
                 if (mutations.length >= 2) break;
@@ -53,7 +51,6 @@ module.exports = function (array) {
     if (mutations.length <= 2) {
         for (const diagonal of diagonals) {
             if (mutationRegx.test(diagonal)) {
-                console.log("diagonal mutation: " + diagonal);
                 hasMutations = false;
                 mutations.push(diagonal)
                 if (mutations.length >= 2) break;

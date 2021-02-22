@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const { body, validationResult, Result } = require('express-validator');
 const { mysqlConnection, queryPromess } = require('./mysqlConnection');
 const { json } = require('body-parser');
+const concatDna = require('./services/concatDna');
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -24,24 +25,19 @@ app.use(bodyParser.json());
 // Callback method
 app.post('/mutation',
   body('dna').custom((dna) => {
-    let invalidPattern = new RegExp(/[^ATCG]/i);
     let isArray = Array.isArray(dna);
-    let fullStringDna = "";
-
     if (!isArray) {
       throw new Error('DNA data is not an array');
     }
 
-    for (const row of dna) {
-      fullStringDna = fullStringDna.concat(row);
-    }
-
+    let invalidPattern = new RegExp(/[^ATCG]/i);
+    let fullStringDna = concatDna(dna)
     if (invalidPattern.test(fullStringDna)) {
       throw new Error('DNA characters are invalid');
     }
 
-    return true;
-  }),
+      return true;
+    }),
   async (req, res) => {
     try {
       validationResult(req).throw();
