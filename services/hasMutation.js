@@ -1,3 +1,5 @@
+const reIndexDnas = require("./reIndexDnas");
+
 module.exports = function (array) {
 
     let mutationRegx = /([a-zA-Z])\1\1\1/i
@@ -12,7 +14,7 @@ module.exports = function (array) {
         if (mutationRegx.test(horizontal)) {
             hasMutations = false;
             mutations.push(horizontal)
-            if (mutations.length <= 2) break;
+            if (mutations.length >= 2) break;
         }
 
 
@@ -35,7 +37,8 @@ module.exports = function (array) {
             else ascDiagonals[diagonalIndex] = nitrogenBase;
         }
     }
-
+    
+    descDiagonals = reIndexDnas(descDiagonals);
     let diagonals = descDiagonals.concat(ascDiagonals);
 
     if (mutations.length <= 2) {
