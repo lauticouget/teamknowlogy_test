@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const util = require('util');
-// require('dotenv').config();
+require('dotenv').config();
 console.log(  process.env.HOST,
    process.env.USER,
    process.env.DATABASE,
